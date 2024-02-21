@@ -1,0 +1,17 @@
+name: Test Javascript Action
+on: [push]
+
+jobs:
+  test:
+
+    runs-on: ubuntu-latest
+
+    name: Test upload
+    steps:
+
+      - uses: actions/checkout@v4
+
+      - name: Start Javascript action to upload buildinfo's artifacts
+        uses: sentrysoftware/upload-buildinfo-outputs@main
+        with:
+          compression-level: 0
