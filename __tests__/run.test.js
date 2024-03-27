@@ -3,7 +3,7 @@ const core = require('@actions/core');
 const { readBuildInfoFiles } = require('../src/buildinfo.js');
 const { run } = require('../src/run.js');
 const { searchBuildinfo } = require('../src/search.js');
-const { uploadArtifact } = require('../src/upload.js');
+const { uploadArtifact, uploadBuildInfo } = require('../src/upload.js');
 
 // Mock dependencies
 jest.mock('@actions/core', () => ({
@@ -20,6 +20,7 @@ jest.mock('../src/search.js', () => ({
 }));
 jest.mock('../src/upload.js', () => ({
     uploadArtifact: jest.fn(),
+    uploadBuildInfo: jest.fn(),
 }));
 
 describe('test run', () => {
@@ -36,6 +37,7 @@ describe('test run', () => {
 
     expect(searchBuildinfo).toHaveBeenCalled();
     expect(readBuildInfoFiles).toHaveBeenCalledWith(['path/to/buildinfo1', 'path/to/buildinfo2']);
+    expect(uploadBuildInfo).toHaveBeenCalledWith(['path/to/buildinfo1', 'path/to/buildinfo2']);
     expect(uploadArtifact).toHaveBeenCalledTimes(2); // Assuming two artifacts are found and uploaded
   });
 
@@ -49,6 +51,7 @@ describe('test run', () => {
     expect(searchBuildinfo).toHaveBeenCalled();
     expect(readBuildInfoFiles).toHaveBeenCalledWith([]);
     expect(core.warning).toHaveBeenCalledWith('No output file found for upload.');
+    expect(uploadBuildInfo).toHaveBeenCalledWith([]);
     expect(uploadArtifact).not.toHaveBeenCalled();
   });
 

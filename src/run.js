@@ -1,13 +1,15 @@
 const core = require('@actions/core');
 const { readBuildInfoFiles } = require('./buildinfo.js');
 const { searchBuildinfo } = require('./search.js');
-const { uploadArtifact } = require('./upload.js');
+const { uploadArtifact, uploadBuildInfo } = require('./upload.js');
 
 function run() {
     try {
         const buildInfoPaths = searchBuildinfo();
 
         let outputs = readBuildInfoFiles(buildInfoPaths);
+
+        uploadBuildInfo(buildInfoPaths);
 
         if (outputs) {
             outputs.forEach(output => {
