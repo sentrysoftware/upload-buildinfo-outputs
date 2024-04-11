@@ -66,7 +66,6 @@ describe('test readBuildInfoFiles', () => {
         expect(readBuildInfoFilesMock).toHaveBeenCalled();
 
         expect(outputs).toStrictEqual([
-            '/path/to/dummy-module-1.0.00.pom',
             '/path/to/dummy-module-1.0.00.txt'
         ]);
 
