@@ -22,7 +22,9 @@ function readBuildInfoFile(filePath) {
             if (line.startsWith('outputs') && line.includes('filename=')) {
                 const outputFileName = line.split('=')[1];
                 const outputFilePath = join(location, outputFileName);
-                outputs.push(outputFilePath);
+                if (!outputFileName.includes('.pom')) {
+                    outputs.push(outputFilePath);
+                }
             }
         });
 
