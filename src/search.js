@@ -16,4 +16,5 @@ function searchFilePath(fileName) {
 
 module.exports = {
     searchBuildinfo,
+    searchFilePath,
 };
