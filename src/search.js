@@ -8,6 +8,12 @@ function searchBuildinfo() {
     return globSync(searchPath);
 }
 
+function searchFilePath(fileName) {
+    const searchPath = `**/${fileName}`;
+    core.info(`Search for file in ${searchPath}!`);
+    return globSync(searchPath);
+}
+
 module.exports = {
     searchBuildinfo,
 };
