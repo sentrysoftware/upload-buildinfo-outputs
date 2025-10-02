@@ -123995,7 +123995,9 @@ function searchBuildinfo() {
 function searchFilePath(fileName) {
     const searchPath = `**/${fileName}`;
     core.info(`Search for file in ${searchPath}!`);
-    return globSync(searchPath);
+    const filePaths = globSync(searchPath);
+    // Return the first found file path or null if not found
+    return filePaths.length > 0 ? filePaths[0] : null;
 }
 
 module.exports = {
