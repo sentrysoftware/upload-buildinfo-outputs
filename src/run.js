@@ -1,6 +1,6 @@
 const core = require('@actions/core');
 const { readBuildInfoFiles } = require('./buildinfo.js');
-const { searchBuildinfo } = require('./search.js');
+const { searchBuildinfo, searchFilePath } = require('./search.js');
 const { uploadArtifact, uploadBuildInfo } = require('./upload.js');
 
 function run() {
@@ -13,7 +13,8 @@ function run() {
 
         if (outputs) {
             outputs.forEach(output => {
-                uploadArtifact(output);
+                const filePath = searchFilePath(output);
+                uploadArtifact(filePath);
             });
         } else {
             core.warning('No output file found for upload.');

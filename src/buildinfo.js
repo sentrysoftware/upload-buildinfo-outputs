@@ -11,8 +11,6 @@ function readBuildInfoFile(filePath) {
         debug(`readBuildInfo(${filePath})`);
 
         const encoding = getFileEncoding();
-
-        const location = dirname(filePath);
         const content = readFileSync(filePath, encoding);
         const lines = content.split(/\n|\r\n/);
 
@@ -21,9 +19,8 @@ function readBuildInfoFile(filePath) {
         lines.forEach(line => {
             if (line.startsWith('outputs') && line.includes('filename=')) {
                 const outputFileName = line.split('=')[1];
-                const outputFilePath = join(location, outputFileName);
                 if (!outputFileName.includes('.pom')) {
-                    outputs.push(outputFilePath);
+                    outputs.push(outputFileName);
                 }
             }
         });
