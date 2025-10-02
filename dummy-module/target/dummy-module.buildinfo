@@ -30,3 +30,13 @@ outputs.1.groupId=org.sentrysoftware
 outputs.1.filename=dummy-module-1.0.00.txt
 outputs.1.length=22
 outputs.1.checksums.sha512=7b69215e1fc256d55f7a4cbb7daf5ca0cf63358a3d2bf85bb12f954646502afaef074f1d517184cf4e42271f4965f651850c76c1b6c90ff79f09a778e8c93a3d
+
+outputs.2.groupId=org.sentrysoftware
+outputs.2.filename=dummy-sub-module-1.0.00.pom
+outputs.2.length=287
+outputs.2.checksums.sha512=cbd2e4dc6ddd5590ecf4d7aec5a5a368121e21494611c6b8081461d669e0c9c8e40356bcbdf9f9ce9f4eabe5be0af2f4e93af3301db120e5fa5f7ad9b3ab700f
+
+outputs.3.groupId=org.sentrysoftware
+outputs.3.filename=dummy-sub-module-1.0.00.txt
+outputs.3.length=22
+outputs.3.checksums.sha512=7b69215e1fc256d55f7a4cbb7daf5ca0cf63358a3d2bf85bb12f954646502afaef074f1d517184cf4e42271f4965f651850c76c1b6c90ff79f09a778e8c93a3d
