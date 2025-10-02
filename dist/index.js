@@ -123808,8 +123808,6 @@ function readBuildInfoFile(filePath) {
         debug(`readBuildInfo(${filePath})`);
 
         const encoding = getFileEncoding();
-
-        const location = dirname(filePath);
         const content = readFileSync(filePath, encoding);
         const lines = content.split(/\n|\r\n/);
 
